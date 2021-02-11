@@ -11,9 +11,9 @@ RUN go build -ldflags="-s -w" -o hello-http ./hello-http.go
 # step 2 - run image
 FROM scratch AS runner
 # Copy our static executable.
-ENV HELLO=goodbye
+ENV HELLO="Goodbye to you"
 COPY --from=builder /go/hello-http /usr/bin/hello-http
 
 EXPOSE 8080
 ENTRYPOINT [ "/usr/bin/hello-http" ]
-CMD [ "goofball" ]
+CMD [ "neighbor" ]
